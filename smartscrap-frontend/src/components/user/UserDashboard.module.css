@@ -1,0 +1,264 @@
+.dashboardContainer {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: var(--white);
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+}
+
+.header {
+    color: var(--dark-charcoal);
+    margin-bottom: 2rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 1rem;
+}
+
+.tabs {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.tabs button {
+    padding: 0.8rem 1rem;
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text-color);
+    border-bottom: 3px solid transparent;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.tabs button:hover {
+    color: var(--primary-green);
+}
+
+.tabs button.active {
+    color: var(--primary-green);
+    border-bottom-color: var(--primary-green);
+}
+
+/* Request List Styles */
+.requestsList h2 {
+    margin-bottom: 1.5rem;
+}
+
+.requestCard {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+    background: var(--light-gray);
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    border-left: 5px solid var(--primary-green);
+}
+
+.requestCard h3 {
+    margin: 0 0 0.5rem 0;
+    color: var(--dark-charcoal);
+}
+
+.requestCard p {
+    margin: 0.25rem 0;
+    color: var(--text-color);
+    font-size: 0.9rem;
+}
+
+/* Status Badge - Pill Style */
+.statusBadge {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    text-align: center;
+    min-width: 80px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.statusBadge:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+/* Status Colors */
+.statusBadge.pending { 
+    background: linear-gradient(135deg, #ff9500, #ff7b00);
+    border: 1px solid #e67e00;
+}
+
+.statusBadge.approved { 
+    background: linear-gradient(135deg, #28a745, #20c997);
+    border: 1px solid #1e7e34;
+}
+
+.statusBadge.scheduled { 
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    border: 1px solid #004085;
+}
+
+.statusBadge.completed { 
+    background: linear-gradient(135deg, #28a745, #20c997);
+    border: 1px solid #1e7e34;
+}
+
+.statusBadge.rejected { 
+    background: linear-gradient(135deg, #dc3545, #c82333);
+    border: 1px solid #bd2130;
+}
+
+.statusBadge.cancelled { 
+    background: linear-gradient(135deg, #6c757d, #5a6268);
+    border: 1px solid #545b62;
+}
+
+/* Form Styles */
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.inputGroup {
+    display: flex;
+    flex-direction: column;
+}
+
+.inputGroup label {
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.inputGroup input,
+.inputGroup textarea {
+    padding: 0.8rem;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+}
+
+.inputGroup input:disabled {
+    background-color: #f0f0f0;
+    cursor: not-allowed;
+}
+
+.submitButton {
+    align-self: flex-start;
+    padding: 0.8rem 2rem;
+    background-color: var(--primary-green);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.2s;
+}
+
+.submitButton:hover {
+    background-color: #00b395;
+}
+
+.loading {
+    text-align: center;
+    padding: 4rem;
+    font-size: 1.5rem;
+}
+/* ... add these to the end of the file ... */
+
+.errorMessage, .successMessage {
+  padding: 0.75rem;
+  border-radius: 6px;
+  text-align: center;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.errorMessage {
+  color: var(--danger-red);
+  background-color: #ffebee;
+  border: 1px solid var(--danger-red);
+}
+
+.successMessage {
+  color: #27ae60;
+  background-color: #e8f5e9;
+  border: 1px solid #27ae60;
+}
+.requestDetails {
+    flex-grow: 1;
+}
+
+.rejection {
+    color: var(--danger-red);
+    font-weight: 500;
+}
+
+.imageThumbnails {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.imageThumbnails img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 4px;
+    border: 1px solid var(--border-color);
+}
+
+/* New styles for the submission form */
+.formGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+.inputGroup.fullWidth {
+    grid-column: 1 / -1; /* Makes an item span the full width */
+}
+
+.inputGroup select,
+.inputGroup input[type="file"] {
+    padding: 0.8rem;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    font-size: 1rem;
+    background-color: var(--white);
+}
+/* --- ADD THIS CODE TO THE END OF YOUR CSS FILE --- */
+
+.statusInfo {
+    margin-top: 1rem;
+    padding: 0.8rem;
+    border-radius: 4px;
+    background-color: #f8f9fa;
+    border-left: 4px solid #3498db;
+}
+
+.statusInfo p {
+    margin: 0;
+    font-weight: 500;
+}
+
+.rejection {
+    color: var(--danger-red);
+}
+
+.scheduled {
+    color: var(--primary-green);
+}

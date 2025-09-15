@@ -1,0 +1,735 @@
+.adminContainer {
+    display: flex;
+    min-height: calc(100vh - 75px);
+}
+
+.sidebar {
+    width: 250px;
+    background-color: var(--dark-charcoal);
+    color: var(--white);
+    padding: 2rem 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar h2 {
+    font-size: 1.5rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #555;
+}
+
+.sidebar nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.sidebar nav button {
+    background: none;
+    border: none;
+    color: #ccc;
+    text-align: left;
+    padding: 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.sidebar nav button:hover,
+.sidebar nav button.active {
+    background-color: #4a4a4a;
+    color: var(--white);
+}
+
+.mainContent {
+    flex: 1;
+    padding: 2rem;
+    background-color: var(--light-gray);
+}
+
+/* Stats Cards */
+.statsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.statCard {
+    display: flex;
+    align-items: center;
+    background: var(--white);
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.cardIcon {
+    font-size: 2.5rem;
+    color: var(--primary-green);
+    margin-right: 1.5rem;
+}
+
+.cardInfo {
+    display: flex;
+    flex-direction: column;
+}
+
+.cardTitle {
+    color: var(--text-color);
+    font-size: 0.9rem;
+}
+
+.cardValue {
+    color: var(--dark-charcoal);
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+/* Table Styles */
+.tableContainer {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+.tableContainer h2 {
+    margin-bottom: 1.5rem;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 0.8rem 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+th {
+    background-color: var(--light-gray);
+    font-weight: 700;
+}
+
+/* Status Badge inside table */
+.statusBadge {
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--white);
+    text-transform: uppercase;
+}
+.statusBadge.pending { background-color: #f39c12; }
+.statusBadge.scheduled { background-color: #3498db; }
+.statusBadge.completed { background-color: var(--primary-green); }
+.statusBadge.cancelled { background-color: var(--danger-red); }
+
+.statusSelect {
+    padding: 0.4rem;
+    border-radius: 4px;
+    border: 1px solid var(--border-color);
+}
+.sidebar nav button {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+/* User Role styles for the Manage Users table */
+.adminRole, .userRole {
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--white);
+}
+
+.adminRole {
+    background-color: var(--accent-coral);
+}
+
+.userRole {
+    background-color: #3498db;
+}
+
+/* Add loading style if it's missing */
+.loading {
+    text-align: center;
+    padding: 4rem;
+    font-size: 1.5rem;
+}
+/* --- ADD THIS CODE TO THE END OF YOUR CSS FILE --- */
+
+.editButton {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.editButton:hover {
+    background-color: #2980b9;
+}
+
+/* Modal Styles */
+.modalBackdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+.modalContent {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 500px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.modalContent h3 {
+    margin-top: 0;
+}
+
+.inputGroup {
+    margin-bottom: 1rem;
+}
+
+.inputGroup label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.inputGroup select,
+.inputGroup input,
+.inputGroup textarea {
+    width: 100%;
+    padding: 0.7rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.modalActions {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+}
+
+.modalActions button {
+    padding: 0.7rem 1.5rem;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.updateButton {
+    background-color: var(--primary-green);
+    color: white;
+    border-color: var(--primary-green);
+}
+
+/* Requests Card Layout */
+.requestsContainer {
+    padding: 1rem;
+}
+
+.requestsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.requestCard {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    border: 1px solid #e9ecef;
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.requestCard:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.cardHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background: #f8f9fa;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.requestId {
+    font-weight: 600;
+    color: #495057;
+    font-size: 1.1rem;
+}
+
+.cardBody {
+    padding: 1rem;
+}
+
+.itemInfo h3 {
+    margin: 0 0 0.25rem 0;
+    color: #2c3e50;
+    font-size: 1.2rem;
+}
+
+.deviceType {
+    margin: 0 0 1rem 0;
+    color: #6c757d;
+    font-size: 0.9rem;
+}
+
+.userInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.userItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.25rem 0;
+}
+
+.userLabel {
+    font-weight: 500;
+    color: #495057;
+    font-size: 0.9rem;
+}
+
+.remarks {
+    background: #f8f9fa;
+    padding: 0.75rem;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    color: #495057;
+}
+
+.imagePreview h4 {
+    margin: 0 0 0.5rem 0;
+    color: #2c3e50;
+    font-size: 1rem;
+}
+
+.imageThumbnails {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.thumbnail {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 6px;
+    border: 2px solid #e9ecef;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.thumbnail:hover {
+    transform: scale(1.05);
+    border-color: #20c997;
+}
+
+.cardActions {
+    display: flex;
+    gap: 0.5rem;
+    padding: 1rem;
+    background: #f8f9fa;
+    border-top: 1px solid #e9ecef;
+}
+
+.cardActions .historyButton {
+    flex: 1;
+    background-color: #6c757d;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.2s;
+}
+
+.cardActions .historyButton:hover {
+    background-color: #5a6268;
+}
+
+.cardActions .editButton {
+    flex: 1;
+    background-color: var(--primary-green);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.2s;
+}
+
+.cardActions .editButton:hover {
+    background-color: #1a9b7a;
+}
+
+.cardActions .scheduleButton {
+    flex: 1;
+    background-color: #ffc107;
+    color: #212529;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: all 0.2s;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.cardActions .scheduleButton:hover {
+    background-color: #e0a800;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.cardActions .scheduledButton {
+    flex: 1;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: not-allowed;
+    font-size: 0.9rem;
+    font-weight: 500;
+    opacity: 0.7;
+}
+
+/* Table Cell Styles (for users view) */
+.userCell, .deviceCell {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.historyButton {
+    background-color: #6c757d;
+    color: white;
+    border: none;
+    padding: 0.3rem 0.6rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    transition: background-color 0.2s;
+}
+
+.historyButton:hover {
+    background-color: #5a6268;
+}
+
+/* Image Preview in Table */
+.imagePreview {
+    display: flex;
+    gap: 0.3rem;
+    align-items: center;
+    margin-top: 0.5rem;
+}
+
+.thumbnail {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 4px;
+    border: 1px solid #e9ecef;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.thumbnail:hover {
+    transform: scale(1.1);
+    border-color: #20c997;
+}
+
+.moreImages {
+    background-color: #6c757d;
+    color: white;
+    padding: 0.2rem 0.4rem;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    font-weight: bold;
+}
+
+/* User History Modal Styles */
+.historyModalContent {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 800px;
+    max-height: 80vh;
+    overflow-y: auto;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.modalHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.modalHeader h3 {
+    margin: 0;
+    color: #2c3e50;
+}
+
+.closeButton {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #6c757d;
+    padding: 0.25rem;
+}
+
+.closeButton:hover {
+    color: #495057;
+}
+
+.historyContent {
+    max-height: 60vh;
+    overflow-y: auto;
+}
+
+.loadingHistory {
+    text-align: center;
+    padding: 2rem;
+    color: #6c757d;
+}
+
+.historyList {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.historyCard {
+    background: #f8f9fa;
+    padding: 1rem;
+    border-radius: 6px;
+    border-left: 4px solid #20c997;
+}
+
+.historyCardHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.historyRequestId {
+    font-weight: 600;
+    color: #495057;
+}
+
+.historyCardBody h4 {
+    margin: 0 0 0.25rem 0;
+    color: #2c3e50;
+}
+
+.historyCardBody p {
+    margin: 0 0 0.5rem 0;
+    color: #6c757d;
+    font-size: 0.9rem;
+}
+
+.historyDate {
+    font-size: 0.8rem;
+    color: #6c757d;
+}
+
+.historyImages {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.historyThumbnail {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 4px;
+    border: 1px solid #e9ecef;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.historyThumbnail:hover {
+    transform: scale(1.05);
+    border-color: #20c997;
+}
+
+/* Image Modal Styles */
+.imageModalBackdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 3000;
+}
+
+.imageModalContent {
+    background: white;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 800px;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.imageModalHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    border-bottom: 1px solid #e9ecef;
+    background: #f8f9fa;
+    border-radius: 8px 8px 0 0;
+}
+
+.imageModalHeader h3 {
+    margin: 0;
+    color: #2c3e50;
+}
+
+.imageModalBody {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    background: #000;
+}
+
+.fullSizeImage {
+    max-width: 100%;
+    max-height: 70vh;
+    object-fit: contain;
+    border-radius: 4px;
+}
+
+.imageModalFooter {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1rem;
+    border-top: 1px solid #e9ecef;
+    background: #f8f9fa;
+    border-radius: 0 0 8px 8px;
+}
+
+.navButton {
+    background-color: var(--primary-green);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.2s;
+}
+
+.navButton:hover:not(:disabled) {
+    background-color: #1a9b7a;
+}
+
+.navButton:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+/* Pickup Person Assignment Styles */
+.pickupPersonSection {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    margin-top: 0.5rem;
+}
+
+.pickupPersonSelect {
+    flex: 1;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 1rem;
+    background-color: white;
+}
+
+.assignButton {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.2s;
+}
+
+.assignButton:hover:not(:disabled) {
+    background-color: #0056b3;
+}
+
+.assignButton:disabled {
+    background-color: #6c757d;
+    cursor: not-allowed;
+}
+
+.currentAssignment {
+    margin-top: 0.5rem;
+    padding: 0.5rem;
+    background-color: #e9ecef;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    color: #495057;
+}
+
+.assignedPerson {
+    color: #007bff;
+    font-weight: 600;
+}

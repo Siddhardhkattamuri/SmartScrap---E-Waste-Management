@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap');
+
+/* Define CSS variables for consistent branding */
+:root {
+  --primary-green: #00C9A7;
+  --accent-coral: #FF8D6D;
+  --dark-charcoal: #333333;
+  --light-gray: #F8F9FA;
+  --text-color: #4A4A4A;
+  --border-color: #e2e8f0;
+  --white: #fff;
+  --danger-red: #e74c3c;
+}
+
+body {
+  margin: 0;
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--light-gray);
+  color: var(--text-color);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+main {
+  padding-top: 75px; /* Adjust based on navbar height */
+}

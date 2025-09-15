@@ -1,0 +1,183 @@
+.pageContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 75px);
+  padding: 2rem;
+}
+
+.formWrapper {
+  width: 100%;
+  max-width: 420px;
+  padding: 2.5rem;
+  background: var(--white);
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+  border: 1px solid var(--border-color);
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--dark-charcoal);
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  color: var(--text-color);
+}
+
+.input, .textarea {
+  padding: 0.8rem;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  font-size: 1rem;
+  font-family: 'Poppins', sans-serif;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+.input:focus, .textarea:focus {
+  outline: none;
+  border-color: var(--primary-green);
+  box-shadow: 0 0 0 3px rgba(0, 201, 167, 0.15);
+}
+
+.submitButton {
+  padding: 0.8rem;
+  margin-top: 0.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  color: white;
+  background-color: var(--primary-green);
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.submitButton:hover {
+  background-color: #00b395;
+}
+
+.errorMessage {
+  color: var(--danger-red);
+  background-color: #ffebee;
+  border: 1px solid var(--danger-red);
+  padding: 0.75rem;
+  border-radius: 6px;
+  text-align: center;
+  font-size: 0.9rem;
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.redirectText {
+  text-align: center;
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+}
+
+.redirectLink {
+  color: var(--primary-green);
+  font-weight: 500;
+  text-decoration: none;
+}
+
+/* --- ADD THIS CLASS IF IT'S MISSING --- */
+.successMessage {
+  color: #27ae60;
+  background-color: #e8f5e9;
+  border: 1px solid #27ae60;
+  padding: 0.75rem;
+  border-radius: 6px;
+  text-align: center;
+  font-size: 0.9rem;
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+/* OTP Login Styles */
+.methodToggle {
+  display: flex;
+  margin-bottom: 1.5rem;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.toggleButton {
+  flex: 1;
+  padding: 0.75rem;
+  border: none;
+  background-color: var(--light-gray);
+  color: var(--text-color);
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.toggleButton.active {
+  background-color: var(--primary-green);
+  color: white;
+}
+
+.toggleButton:hover:not(.active) {
+  background-color: #e9ecef;
+}
+
+.buttonGroup {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.buttonGroup button {
+  flex: 1;
+  min-width: 120px;
+}
+
+.secondaryButton {
+  padding: 0.8rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-color);
+  background-color: transparent;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.secondaryButton:hover {
+  background-color: var(--light-gray);
+  border-color: var(--primary-green);
+}
+
+.inputGroup small {
+  margin-top: 0.25rem;
+  font-size: 0.8rem;
+  color: var(--text-color);
+  opacity: 0.8;
+}
