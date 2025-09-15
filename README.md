@@ -1,3 +1,7 @@
+Got it ✅ Here’s the **complete README in Markdown format** — already styled with emojis and Markdown syntax.
+Just copy-paste into your `README.md` file on GitHub.
+
+````markdown
 # ♻️ SmartScrap: E-Waste Management System  
 
 A **full-stack web application** designed to streamline the process of **e-waste collection and management**.  
@@ -60,10 +64,18 @@ Ensure the following are installed:
    ```bash
    git clone https://github.com/your-username/your-repo-name.git
    cd your-repo-name
-2. 🗃️ Create Database:
+````
+
+2. 🗃️ **Create Database:**
+
+   ```sql
    CREATE DATABASE smartscrap_db;
-3. ⚙️ Configure Properties:
-    Edit smartscrap-backend/src/main/resources/application.properties
+   ```
+
+3. ⚙️ **Configure Properties:**
+   Edit `smartscrap-backend/src/main/resources/application.properties`
+
+   ```properties
    spring.datasource.url=jdbc:mysql://localhost:3306/smartscrap_db
    spring.datasource.username=root
    spring.datasource.password=your_mysql_password
@@ -73,7 +85,56 @@ Ensure the following are installed:
    smartscrap.app.admin.fullName=Admin User
    smartscrap.app.admin.email=ramakrishnakattamuri564@gmail.com
    smartscrap.app.admin.password=adminpassword123
-4. ▶️ Run Backend:
+   ```
+
+4. ▶️ **Run Backend:**
+
+   ```bash
    cd smartscrap-backend
    ./mvnw spring-boot:run
+   ```
+
+   Server starts at: 👉 [http://localhost:8080](http://localhost:8080)
+
+---
+
+### 2️⃣ Frontend Setup
+
+1. 📂 Navigate:
+
+   ```bash
+   cd smartscrap-frontend
+   ```
+
+2. 📦 Install dependencies:
+
+   ```bash
+   npm install
+   ```
+
+3. ▶️ Run app:
+
+   ```bash
+   npm start
+   ```
+
+   Opens at: 👉 [http://localhost:3000](http://localhost:3000)
+
+---
+
+## 📖 Application Usage
+
+👤 **User Flow:**
+
+1. 🔑 Register at `/register`.
+2. 🔓 Login and access dashboard.
+3. 📦 Submit requests & track status.
+
+🛠️ **Admin Flow:**
+
+1. Login with default admin credentials.
+
+   * 📧 `ramakrishnakattamuri564@gmail.com`
+   * 🔑 `adminpassword123`
+2. ⚡ Manage requests & users via dashboard.
 
